@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <title>demo 03</title>
+</head>
+<body>
+    <div ng-app="myApp">
+        <div ng-controller="ctrl0">
+            <div ng-bind="name"></div>
+        </div>
+        <div ng-controller="ctrl1">
+            <div ng-bind="name"></div>
+        </div>
+    </div>
+    <script src="../js/angular.min.1.5.8.js"></script>
+    <script type="text/javascript">
+        var app = angular.module("myApp",[]);
+        app.controller("ctrl0",function($scope){
+            $scope.name = "Hello";
+        });
+        app.controller("ctrl1",function($scope){
+            $scope.name = "AngularJS";
+        });
+    </script>
+</body>
+</html>

@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="myApp">
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
 	</head>
-	<body>
-		hello{{'world'}}!
-
+	<body ng-controller="TextController">
+		<p>{{someText}}</p>
 
 		<script src="../js/angular.min.1.5.8.js"></script>
 		<script type="text/javascript">
-			
+			var app = angular.module("myApp",[]);
+			app.controller("TextController",function($scope){
+				$scope.someText = "You have started you journey";
+			});
 		</script>
 	</body>
 </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <title>Title</title>
+</head>
+<body>
+    <!--rootScope;-->
+    <!--<div ng-app="myApp">
+        <div ng-controller="myController" ng-bind="name"></div>
+        <div ng-bind="name"></div>
+    </div>
+    <script src="../js/angular.min.1.5.8.js"></script>
+    <script type="text/javascript">
+        var app = angular.module("myApp",[]);
+        app.controller("myController",function($scope,$rootScope){
+            $scope.name = "AngularJS";
+            $rootScope.name = $scope.name;
+        });
+    </script>-->
+
+    <!--run();   -->
+    <div ng-app="myApp">
+        <div ng-controller="myController">
+            {{name}}:{{age}}
+        </div>
+        <div ng-bind="name"></div>
+    </div>
+    <script src="../js/angular.min.1.5.8.js"></script>
+    <script type="text/javascript">
+        var app = angular.module("myApp",[]);
+        app.controller("myController",function($scope,$rootScope){
+            $scope.age = 20;
+        });
+        app.run(function($rootScope){
+            $rootScope.name = "Jack";
+        });
+    </script>
+
+
+</body>
+</html>
