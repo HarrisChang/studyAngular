@@ -1,0 +1,41 @@
+<!--<header><h2><i></i>用户注册</h2></header>-->
+<header ng-include="'./src/templates/header.html'"></header>
+<form action="" name="registerName" id="registerName" method="post">
+    <div>
+        <input type="text" id="username" name="username" ng-model="registerUserID" placeholder="请输入账户" required  pattern="^\w{8}$" />
+        <p>账户名称：</p>
+    </div>
+    <div>
+        <input type="password" id="userpwd" name="userpwd" ng-model="registerPassword" placeholder="请输入密码" required  pattern="^[a-zA-Z]\w{5,17}$" />
+        <p>登录密码：</p>
+    </div>
+    <div>
+        <input type="password" id="checkPassword" name="checkPassword" ng-model="checkPassword" placeholder="请输入密码" required  pattern="^{{registerPassword}}$" />
+        <p>确认密码：</p>
+    </div>
+    <!--需要进行ajax请求的按钮不能使用button或sumbit按钮，需要使用其他标签模拟一个按钮来操作-->
+    <!--当点击事件传参为true才会发送注册请求-->
+    <a id="confirmRegister" ng-click="gologin(registerName.username.$valid&&registerName.userpwd.$valid&&registerName.checkPassword.$valid)">确定注册</a>
+    <p class="help-block-require">
+        <label ng-show="registerName.username.$dirty&&registerName.username.$error.required">
+            *必填字段
+        </label>
+        <label ng-show="registerName.userpwd.$dirty&&registerName.userpwd.$error.required">
+            *必填字段
+        </label>
+        <label ng-show="registerName.checkPassword.$dirty&&registerName.checkPassword.$error.required">
+            *必填字段
+        </label>
+    </p>
+    <p class="help-block">
+        <label ng-show="registerName.username.$error.pattern">
+            *请输入8位字符，只能包含字符、数字和下划线
+        </label>
+        <label ng-show="registerName.userpwd.$error.pattern">
+            *请输入以字母开头，长度在6~18之间，只能包含字符、数字和下划线的密码
+        </label>
+        <label ng-show="registerName.checkPassword.$error.pattern">
+            *确认密码请与输入密码保证一致
+        </label>
+    </p>
+</form>

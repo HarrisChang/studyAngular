@@ -1,0 +1,18 @@
+<!--<header><h2>开心摇摇用户登录</h2></header>-->
+<header ng-include="'./src/templates/header.html'"></header>
+<form action="" name="loginName" id="loginName">
+    <input type="text" id="username" name="username" placeholder="请输入账户" ng-model="loginUserID" required  pattern="^\w{8}$" />
+    <input type="{{appearPwd?'text':'password'}}" id="userpwd" name="userpwd" placeholder="请输入密码" ng-model="loginPassword" required  pattern="^[a-zA-Z]\w{5,17}$" />
+    <p class="appearpassword">
+        <input type="checkbox" id="appearpwd" ng-model="appearPwd" />
+        <label for="appearpwd">显示密码</label>
+        <a href="javascript:;">忘记密码？</a>
+    </p>
+    <p class="markpassword">
+        <input type="checkbox" id="markpwd" checked/>
+        <label for="markpwd">记住密码<!--自动登录--></label>
+    </p>
+    <a id="login" ng-click="goIndexPage(loginName.username.$valid&&loginName.userpwd.$valid)">登录</a>
+</form>
+<a href="#/register" id="register">注册</a>
+

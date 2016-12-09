@@ -1,0 +1,54 @@
+/**
+ * Created by Administrator on 16-8-5.
+ */
+angular.module("App",["ngRoute","CtrlModule"])
+    .config(function($routeProvider){
+        $routeProvider
+        .when("/home",{
+            templateUrl:"./src/templates/home.html",
+            controller:"homeCtrl"
+        })
+        .when("/search",{
+            templateUrl:"./src/templates/search.html",
+            controller:"searchCtrl"
+        })
+        .when("/list",{
+            templateUrl:"./src/templates/list.html",
+            controller:"listCtrl"
+        })
+        .when("/login",{
+            templateUrl:"./src/templates/login.html",
+            controller:"loginCtrl"
+        })
+        .when("/register",{
+            templateUrl:"./src/templates/register.html",
+            controller:"registerCtrl"
+        })
+        .when("/shoppingCart",{
+            templateUrl:"./src/templates/shoppingCart.html",
+            controller:"shoppingCartCtrl"
+        })
+        .when("/myShow",{
+            templateUrl:"./src/templates/myShow.html",
+            controller:"myShowCtrl"
+        })
+        .when("/more",{
+            templateUrl:"./src/templates/more.html",
+            controller:"moreCtrl"
+        })
+        .when("/detail/:a",{
+            templateUrl:"./src/templates/detail.html",
+            controller:"detailCtrl"
+        })
+        .when("/detailexplain/:a",{
+            templateUrl:"./src/templates/detailexplain.html",
+            controller:"detailexplainCtrl"
+        })
+        .when("/splash",{
+            templateUrl:"./src/templates/splash.html"
+        })
+        .otherwise({
+            redirectTo:"/splash"
+        })
+})
+

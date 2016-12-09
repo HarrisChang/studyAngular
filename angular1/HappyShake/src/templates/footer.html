@@ -1,0 +1,12 @@
+<div ng-controller="footerCtrl">
+    <!--$index是homes的循环因子下标，currentIndex是当前下标-->
+    <a ng-click="updateShowHide($index,item.href)" ng-repeat="item in homes">
+        <!--点击a标签时触发点击事件将点击的下标和对应的href值传过去控制器，
+        当点击的下标$index与控制器里的当前下标currentIndex一致时ng-if为true，em显示-->
+        <em ng-if="$index==currentIndex"></em>
+        <div class="box">
+            <i ng-style="{'background-image': 'url('+item.backgroundurl+')'}"></i>
+            <span>{{item.text}}</span>
+        </div>
+    </a>
+</div>

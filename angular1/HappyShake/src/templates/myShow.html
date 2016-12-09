@@ -1,0 +1,34 @@
+<header ng-include="'./src/templates/header.html'"></header>
+<div id="show-content">
+    <div class="show-box">
+        <div class="show-header">
+            <i ng-click="changePic()" id="takephoneimg"></i>
+            <p>昵称：<span ng-model="showname" ng-bind="showname"></span></p>
+            <p>余额：<b>0</b></p>
+        </div>
+        <ul>
+            <li ng-repeat="item in shows">
+                <a href="javascript:;" ng-bind="item.text"></a>
+                <i></i>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="get-headerPic" ng-if="pictureHide==1?true:false">
+    <div class="picture-way">
+        <div class="picture-box">
+            <p>选择操作</p>
+            <b ng-click="closePic()"></b>
+            <div id="camera" ng-click="getphone()">
+                <em></em>
+                <span>相机</span>
+            </div>
+            <div id="picture" ng-click="getpicture()">
+                <em></em>
+                <span>相册</span>
+            </div>
+        </div>
+    </div>
+</div>
+<footer ng-include="'./src/templates/footer.html'"></footer>
+

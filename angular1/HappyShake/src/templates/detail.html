@@ -1,0 +1,27 @@
+<header ng-include="'./src/templates/header.html'"></header>
+<div id="detail-content">
+    <div class="detailbanner">
+        <div class="detail-banner swiper-container" detailbanner>
+            <div class="swiper-wrapper">
+                <div class="detail-img swiper-slide" ng-repeat="item in banners">
+                    <img ng-src="{{item}}" alt=""/>
+                </div>
+                {{update()}}
+            </div>
+            <!-- Add Pagination -->
+            <div class="detail-box swiper-pagination"></div>
+        </div>
+    </div>
+    <p class="detailname">{{goods.goodsName}}</p>
+    <b>￥{{goods.discount=="0"?goods.price*1:(goods.price*goods.discount/10).toFixed(0)}}</b>
+    <i>￥{{goods.price}}</i>
+    <p class="buyman">购买人数：<em>{{goods.buynumber}}</em></p>
+    <div class="jumpdetail" ng-click="godetailexplain(goods.goodsID)">
+        <i></i><p>查看商品详情</p><em></em>
+    </div>
+    <div class="addtocart">
+        <button ng-click="addCart(goods.goodsID)">添加到购物车</button>
+    </div>
+</div>
+
+

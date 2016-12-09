@@ -1,0 +1,11 @@
+<header ng-include="'./src/templates/header.html'"></header>
+<div id="detailexplain-content">
+    <div class="explainpic">
+        <img ng-src="{{goods.goodsListImg}}" alt=""/>
+    </div>
+    <div class="explain">
+        <p ng-repeat="item in arr">{{item}}</p>
+    </div>
+</div>
+
+

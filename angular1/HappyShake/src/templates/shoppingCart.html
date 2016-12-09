@@ -1,0 +1,32 @@
+<header ng-include="'./src/templates/header.html'"></header>
+<div id="cart-content">
+    <div class="add-all">
+        <span>商品数量：<b>{{goodCount}}</b></span>
+        <span>应付总额(不含运费)：<strong>￥{{priceCount}}</strong></span>
+    </div>
+    <div class="shop-scroller" id="wrapper" iscroll>
+        <div id="scroller" class="shop-scrollerbox">
+            <div class="pull-down-refresh J-pull-down-refresh">
+                <span>下拉刷新</span>
+            </div>
+            <ul iscroll>
+                <li ng-repeat="item in cartdetail">
+                    <i ng-style="{'background-image': 'url('+item.goodsListImg+')'}"></i>
+                    <span ng-click="delGood(item.goodsID,cartdetail,$index)"></span>
+                    <p class="goodName">{{item.goodsName}}</p>
+                    <p class="goodPrice">单价：<b>￥{{item.discount=="0"?item.price*1:(item.price*item.discount/10).toFixed(0)}}</b></p>
+                    <div class="goodNum">数量:
+                        <p>
+                            <em class="reduce" ng-click="goreduce(item.goodsID,cartdetail,item.number,$index)"></em>
+                            <input type="text" value="{{item.number>1?item.number:1}}" ng-blur="jumpnumber(item.goodsID,cartdetail,item.number,$index)" ng-model="item.number" />
+                            <em class="add" ng-click="goadd(item.goodsID,cartdetail,item.number,$index)"></em>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        {{refresh()}}
+    </div>
+</div>
+<footer ng-include="'./src/templates/footer.html'"></footer>
+

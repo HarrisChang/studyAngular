@@ -1,0 +1,31 @@
+<header ng-include="'./src/templates/header.html'"></header>
+<div id="home-content">
+    <div class="home-search">
+        <div class="search-box">
+            <a href="javascropt:;" ng-click="homeSearch()"></a>
+            <input type="text" ng-model="searchkey" placeholder="请输入搜索内容" />
+        </div>
+    </div>
+    <div class="home-scroller" id="wrapper" iscroll>
+        <div id="scroller" class="home-scrollerbox">
+            <div class="pull-down-refresh J-pull-down-refresh">
+                <span>下拉刷新</span>
+            </div>
+            <banner></banner>
+            <ul class="home-list">
+                <li ng-repeat="item in goods" >
+                    <!--angular加载背景图需用ng-style，内容是对象写法，不是直接写路径-->
+                    <i ng-click="godetail(item.goodsID)" ng-style="{'background-image': 'url('+item.goodsListImg+')'}"></i>
+                    <p ng-click="godetail(item.goodsID)">{{item.goodsName}}</p>
+                    <b>¥{{item.discount=="0"?item.price*1:(item.price*item.discount/10).toFixed(0)}}</b>
+                    <span>¥{{item.price}}</span>
+                    <em>{{item.discount}}折</em>
+                    <button ng-click="addCart(item.goodsID)"></button>
+                </li>
+            </ul>
+        </div>
+        {{refresh()}}
+    </div>
+</div>
+<footer ng-include="'./src/templates/footer.html'"></footer>
+

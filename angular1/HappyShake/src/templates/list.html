@@ -1,0 +1,40 @@
+<header ng-include="'./src/templates/header.html'"></header>
+<div id="list-content">
+    <div class="list-kinds">
+        <!--绑定转译标签要用ng-bind-html-->
+        <div class="list-iconfont swiper-container" iconswiper>
+            <div class="swiper-wrapper">
+                <!--点击a标签时触发点击事件将点击的下标和对应的href值传过去控制器，
+                当点击的下标$index与控制器里的当前下标currentIndex一致时ng-if为true，em显示-->
+                <!--listicon.classID是商品分类接口中的值，可以作为区分商品类别的参数传入控制器-->
+                <a href="javascript:;" ng-click="changeicon($index,listicon.classID)" class="list-icon swiper-slide" ng-repeat="listicon in listicons">
+                    <i class="icon iconfont" ng-bind-html="listicon.icon|html" ng-style="{'color': $index==currentIndex?'#fff':'#000'}"></i>
+                    <span ng-if="$index==currentIndex"></span>
+                </a>
+                {{update()}}
+            </div>
+        </div>
+        <!--<i ng-repeat="listicon in listicons" class="{{listicon.className}}"></i>-->
+    </div>
+    <div class="list-scroller" id="wrapper" iscroll>
+        <div id="scroller" class="list-scrollerbox">
+            <div class="pull-down-refresh J-pull-down-refresh">
+                <span>下拉刷新</span>
+            </div>
+            <div class="list-detail">
+                <div ng-repeat="listgood in listgoods">
+                    <span>
+                        <i ng-click="godetail(listgood.goodsID)" ng-style="{'background-image': 'url('+listgood.goodsListImg+')'}"></i>
+                        <p ng-click="godetail(listgood.goodsID)">{{listgood.goodsName}}</p>
+                        <!--<p>{{listgood.className}}</p>-->
+                        <b>¥{{listgood.discount=="0"?listgood.price*1:(listgood.price*listgood.discount/10).toFixed(0)}}</b>
+                        <em>¥{{listgood.price}}</em>
+                    </span>
+                </div>
+            </div>
+        </div>
+        {{refresh()}}
+    </div>
+</div>
+<footer ng-include="'./src/templates/footer.html'"></footer>
+

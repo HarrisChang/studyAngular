@@ -1,0 +1,11 @@
+<div class="home-banner swiper-container">
+    <div class="swiper-wrapper">
+        <div class="banner-img swiper-slide" ng-repeat="item in banners">
+            <img ng-src="{{item}}" alt=""/>
+        </div>
+
+        {{update()}}
+    </div>
+    <!-- Add Pagination -->
+    <div class="home-pagination swiper-pagination"></div>
+</div>

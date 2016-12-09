@@ -1,0 +1,6 @@
+<div ng-controller="headerCtrl">
+    <!--绑定转译标签要用ng-bind-html-->
+    <i ng-click="gopage()" ng-show="idisplay"></i>
+    <h2 ng-bind="headerName"></h2>
+    <em ng-click="godoing()" ng-show="emdisplay" ng-style="{'background-image': 'url('+headerUrl+')'}"></em>
+</div>
